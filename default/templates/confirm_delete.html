@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if backpath %}
+<a href="{{ backpath }}" class="btn btn-primary">返回前一頁</a><br>
+{% endif %}
+<h1>{{title}}</h1>
+<div class="list-group-item">{{object}}</div>
+<form action="" method="post">
+    <p>確定要刪除這筆紀錄嗎?</p>
+    {% csrf_token %}
+    <input type="submit" value="是的，我要刪除" class="btn btn-sm btn-danger">
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><a href="/" class="btn btn-primary">回首頁</a></p>
+<div class="card">
+    <div class="card-header"><H1>{{poll.subject}}</H1></div>
+    <div class="card-body">
+        <p>小提示:直接按選項文字就可以投票摟</p>
+        <ul class="list-group">
+            {% for option in options %}
+            <li class="list-group-item">
+                <a href="/option/{{option.id}}/update/" class="btn btn-sm btn-secondary">修改</a>|
+                <a href="/option/{{option.id}}/delete/" class="btn btn-sm btn-danger">刪除</a>|
+                <a href="/option/{{option.id}}">{{option.title}}</a>:{{option.count}}票|
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-footer">
+        <a href="/option/create/{{poll.id}}" class="btn btn-sm btn-primary">新增選項</a>
+    </div>
+</div>
+{% endblock %}

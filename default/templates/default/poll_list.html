@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>投票主題</h1>
+<a href="/poll/create/" class="btn btn-primary">新增投票主題</a>
+<ul class="list-group">
+    {% for poll in poll_list %}
+    <li class="list-group-item">
+        {{poll.date_created}}
+        <a href="/poll/{{poll.id}}/">{{poll.subject}}</a>|
+        <a href="/poll/{{poll.id}}/update/" class="btn btn-sm btn-secondary">修改</a>|
+        <a href="/poll/{{poll.id}}/delete/" class="btn btn-sm btn-danger">刪除</a>|
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
